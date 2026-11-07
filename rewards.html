@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+    <div class="logo">
+        <div class="logo-icon">C</div>
+        <div class="logo-text">
+            <strong>COMPANY</strong>
+            <span>Корпоративный портал</span>
+        </div>
+    </div>
+
+    <p class="menu-label">МЕНЮ</p>
+
+    <nav class="nav-menu">
+        <a href="index.html" class="nav-link">⌂ Главная</a>
+        <a href="index.html" class="nav-link">♙ Личный кабинет</a>
+        <a href="tasks.html" class="nav-link">✓ Мои задания</a>
+        <a href="rewards.html" class="nav-link active">♧ Магазин призов</a>
+        <a href="index.html" class="nav-link">♜ Рейтинг сотрудников</a>
+        <a href="index.html" class="nav-link">▢ Отзывы</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <span>Нужна помощь?</span>
+        <small>Обратитесь к администратору портала</small>
+    </div>
+</aside>
+
+<main class="rewards-main">
+
+    <header class="rewards-header">
+        <div>
+            <p class="breadcrumb">Портал / Магазин призов</p>
+            <h1>Магазин призов</h1>
+            <p class="rewards-subtitle">
+                Обменивайте заработанные баллы на приятные бонусы
+            </p>
+        </div>
+
+        <div class="rewards-balance">
+            <span>Ваш баланс</span>
+            <strong><span id="points-balance">2450</span> баллов</strong>
+        </div>
+    </header>
+
+    <section class="rewards-banner">
+        <div>
+            <span>ВАШИ ДОСТИЖЕНИЯ МОГУТ БЫТЬ ВОЗНАГРАЖДЕНЫ</span>
+            <h2>Зарабатывайте баллы — выбирайте награды!</h2>
+            <p>Выполняйте задания и получайте приятные бонусы от компании.</p>
+        </div>
+        <div class="rewards-banner-star">★</div>
+    </section>
+
+    <section class="rewards-section">
+        <div class="rewards-section-heading">
+            <div>
+                <h2>Доступные бонусы</h2>
+                <p>Выберите награду, которая вам нравится</p>
+            </div>
+        </div>
+
+        <div class="rewards-grid">
+
+            <article class="reward-card">
+                <div class="reward-image reward-blue">☕️</div>
+                <div class="reward-info">
+                    <span class="reward-category">ПОДАРКИ</span>
+                    <h3>Сертификат на кофе</h3>
+                    <p>Сертификат на любимый напиток.</p>
+                    <div class="reward-bottom">
+                        <strong>500 баллов</strong>
+                        <button class="reward-button" data-reward-id="coffee">
+                            Получить
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="reward-card">
+                <div class="reward-image reward-purple">🎧</div>
+                <div class="reward-info">
+                    <span class="reward-category">ТЕХНИКА</span>
+                    <h3>Беспроводные наушники</h3>
+                    <p>Полезный аксессуар для работы и отдыха.</p>
+                    <div class="reward-bottom">
+                        <strong>1200 баллов</strong>
+                        <button class="reward-button" data-reward-id="headphones">
+                            Получить
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="reward-card">
+                <div class="reward-image reward-orange">🎁</div>
+                <div class="reward-info">
+                    <span class="reward-category">ПОДАРКИ</span>
+                    <h3>Подарочный набор</h3>
+                    <p>Небольшой приятный сюрприз от компании.</p>
+                    <div class="reward-bottom">
+                        <strong>900 баллов</strong>
+                        <button class="reward-button" data-reward-id="gift">
+                            Получить
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="reward-card">
+                <div class="reward-image reward-green">🏆</div>
+                <div class="reward-info">
+<span class="reward-category">ОСОБЫЕ НАГРАДЫ</span>
+                    <h3>Премиальный бонус</h3>
+                    <p>Особенная награда за ваши достижения.</p>
+                    <div class="reward-bottom">
+                        <strong>1800 баллов</strong>
+                        <button class="reward-button" data-reward-id="premium">
+                            Получить
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="my-requests">
+        <h2>Мои заявки</h2>
+        <p>Здесь отображаются ваши запросы на получение бонусов.</p>
+        <div id="reward-requests" class="reward-requests">
+            <div class="requests-empty">У вас пока нет заявок.</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        © 2026 Корпоративный портал. Все права защищены.
+    </footer>
+
+</main>
+<script> scr="js.life/rewards.js"</script>
+</body>
+</html>
+

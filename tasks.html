@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+    .tasks-heading p {
+        color: #8993a4;
+        font-size: 12px;
+        margin-top: 7px;
+    }
+
+    .task-summary {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .summary-card {
+        background: white;
+        border: 1px solid #edf0f5;
+        border-radius: 14px;
+        padding: 19px;
+    }
+
+    .summary-card span {
+        color: #8993a4;
+        font-size: 11px;
+    }
+
+    .summary-card strong {
+        display: block;
+        font-size: 25px;
+        margin-top: 10px;
+    }
+
+    .task-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-bottom: 18px;
+    }
+
+    .filter-button {
+        padding: 10px 16px;
+        border-radius: 9px;
+        background: white;
+        color: #687487;
+        border: 1px solid #edf0f5;
+        font-size: 11px;
+    }
+
+    .filter-button.active,
+    .filter-button:hover {
+        background: #edf3ff;
+        color: #3267e9;
+        border-color: #dce7ff;
+    }
+
+    .tasks-list {
+        display: grid;
+        gap: 14px;
+    }
+
+    .task-card {
+        background: white;
+        border: 1px solid #edf0f5;
+        border-radius: 14px;
+        padding: 21px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .task-card-main {
+        display: flex;
+        gap: 15px;
+        min-width: 0;
+    }
+
+    .task-card-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        background: #edf3ff;
+        color: #3267e9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        flex-shrink: 0;
+    }
+
+    .task-card h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .task-description {
+        font-size: 11px;
+        color: #8993a4;
+        line-height: 1.6;
+        max-width: 560px;
+    }
+
+    .task-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 12px;
+        color: #8993a4;
+        font-size: 10px;
+    }
+
+    .task-card-side {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 11px;
+        flex-shrink: 0;
+    }
+
+    .task-reward {
+        color: #36ad77;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .task-status {
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-size: 10px;
+        font-weight: bold;
+        background: #fff3df;
+        color: #c58a28;
+    }
+
+    .status-progress {
+        background: #edf3ff;
+        color: #3267e9;
+    }
+
+    .status-review {
+        background: #f1ebff;
+        color: #8864d8;
+    }
+
+    .status-done {
+        background: #e6f8ef;
+        color: #36ad77;
+    }
+
+    .task-action {
+        background: #3267e9;
+        color: white;
+        border-radius: 8px;
+        padding: 10px 15px;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .task-action:hover {
+        background: #2454c9;
+    }
+
+    .task-action:disabled {
+        background: #e9edf4;
+        color: #8993a4;
+        cursor: default;
+    }
+
+    .empty-tasks {
+        display: none;
+        background: white;
+        border: 1px solid #edf0f5;
+        border-radius: 14px;
+        padding: 35px;
+        text-align: center;
+        color: #8993a4;
+        font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+        .task-card {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .task-card-side {
+            align-items: flex-start;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .task-summary {
+            grid-template-columns: 1fr;
+        }
+
+        .tasks-heading {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+    }
+</style>
+<aside class="sidebar">
+    <div class="logo">
+        <div class="logo-icon">C</div>
+        <div class="logo-text">
+            <strong>COMPANY</strong>
+<span>Корпоративный портал</span>
+        </div>
+    </div>
+
+    <div class="menu-label">МЕНЮ</div>
+
+    <nav class="navigation">
+        <a href="index.html" class="nav-link">
+            <span class="nav-icon">⌂</span>
+            Главная
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="nav-icon">♙</span>
+            Личный кабинет
+        </a>
+
+        <a href="tasks.html" class="nav-link active">
+            <span class="nav-icon">✓</span>
+            Мои задания
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="nav-icon">♧</span>
+            Магазин призов
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="nav-icon">♜</span>
+            Рейтинг сотрудников
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="nav-icon">✉️</span>
+            Отзывы
+        </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <div class="help-card">
+            <div class="help-icon">?</div>
+            <strong>Нужна помощь?</strong>
+            <p>Если возникли вопросы, обратись к администратору.</p>
+        </div>
+
+        <div class="user-mini">
+            <div class="avatar">ИП</div>
+            <div class="user-mini-info">
+                <strong>Иван Петров</strong>
+                <span>Сотрудник</span>
+            </div>
+            <span class="user-more">•••</span>
+        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+
+    <header class="topbar">
+        <div>
+            <div class="breadcrumb">Портал / Мои задания</div>
+            <h1>Мои задания</h1>
+        </div>
+
+        <div class="topbar-right">
+            <button class="notification-button" aria-label="Уведомления">
+                ♧
+                <span class="notification-dot"></span>
+            </button>
+
+            <div class="topbar-user">
+                <div class="avatar">ИП</div>
+                <div>
+                    <strong>Иван Петров</strong>
+                    <span>Сотрудник</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="tasks-heading">
+        <div>
+            <h2>Ваши задания</h2>
+            <p>Выполняйте задания и получайте баллы за свою работу.</p>
+        </div>
+    </section>
+
+    <section class="task-summary">
+        <div class="summary-card">
+            <span>Всего заданий</span>
+            <strong id="total-count">4</strong>
+        </div>
+
+        <div class="summary-card">
+            <span>В работе</span>
+            <strong id="progress-count">1</strong>
+        </div>
+
+        <div class="summary-card">
+            <span>Ожидают выполнения</span>
+            <strong id="new-count">2</strong>
+        </div>
+    </section>
+
+    <div class="task-filters">
+        <button class="filter-button active" data-filter="all">Все задания</button>
+        <button class="filter-button" data-filter="new">Новые</button>
+        <button class="filter-button" data-filter="progress">В работе</button>
+        <button class="filter-button" data-filter="review">На проверке</button>
+        <button class="filter-button" data-filter="done">Выполненные</button>
+    </div>
+
+    <section class="tasks-list" id="tasks-list">
+
+        <article class="task-card" data-status="new">
+            <div class="task-card-main">
+                <div class="task-card-icon">📊</div>
+                <div>
+                    <h3>Подготовить еженедельный отчёт</h3>
+                    <p class="task-description">
+                        Подготовить отчёт о результатах работы отдела
+                        за текущую неделю и передать руководителю.
+                    </p>
+                    <div class="task-meta">
+                        <span>📁 Отдел маркетинга</span>
+                        <span>📅 До 10 ноября 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="task-card-side">
+                <span class="task-reward">+300 баллов</span>
+                <span class="task-status">Новое</span>
+<button class="task-action start-task">Взять в работу</button>
+            </div>
+        </article>
+
+        <article class="task-card" data-status="progress">
+            <div class="task-card-main">
+                <div class="task-card-icon">📚</div>
+                <div>
+                    <h3>Пройти внутреннее обучение</h3>
+                    <p class="task-description">
+                        Изучить обучающие материалы компании и
+                        пройти итоговый тест.
+                    </p>
+                    <div class="task-meta">
+                        <span>📁 Обучение</span>
+                        <span>📅 До 12 ноября 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="task-card-side">
+                <span class="task-reward">+500 баллов</span>
+                <span class="task-status status-progress">В работе</span>
+                <button class="task-action complete-task">Отметить выполненным</button>
+            </div>
+        </article>
+
+        <article class="task-card" data-status="new">
+            <div class="task-card-main">
+                <div class="task-card-icon">🤝</div>
+                <div>
+                    <h3>Помочь новому сотруднику</h3>
+                    <p class="task-description">
+                        Помочь новому коллеге освоиться в команде
+                        и познакомиться с рабочими процессами.
+                    </p>
+                    <div class="task-meta">
+                        <span>📁 Командная работа</span>
+                        <span>📅 До 15 ноября 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="task-card-side">
+                <span class="task-reward">+200 баллов</span>
+                <span class="task-status">Новое</span>
+                <button class="task-action start-task">Взять в работу</button>
+            </div>
+        </article>
+
+        <article class="task-card" data-status="review">
+            <div class="task-card-main">
+                <div class="task-card-icon">📝</div>
+                <div>
+                    <h3>Обновить рабочую документацию</h3>
+                    <p class="task-description">
+                        Проверить актуальность документов и передать
+                        обновлённую версию администратору.
+                    </p>
+                    <div class="task-meta">
+                        <span>📁 Документы</span>
+                        <span>📅 Отправлено 5 ноября 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="task-card-side">
+                <span class="task-reward">+350 баллов</span>
+                <span class="task-status status-review">На проверке</span>
+                <button class="task-action" disabled>Ожидает проверки</button>
+            </div>
+        </article>
+
+    </section>
+
+    <div class="empty-tasks" id="empty-tasks">
+        В этой категории пока нет заданий.
+    </div>
+
+    <footer class="footer">
+        © 2026 Корпоративный портал. Все права защищены.
+    </footer>
+
+</main>
+<script>
+    const taskCards = document.querySelectorAll(".task-card");
+    const filterButtons = document.querySelectorAll(".filter-button");
+
+    function updateCounts() {
+        const cards = [...taskCards];
+
+        document.getElementById("total-count").textContent = cards.length;
+
+        document.getElementById("progress-count").textContent =
+            cards.filter(card => card.dataset.status === "progress").length;
+
+        document.getElementById("new-count").textContent =
+            cards.filter(card => card.dataset.status === "new").length;
+    }
+
+    function updateTaskStatus(card, status) {
+        const statusElement = card.querySelector(".task-status");
+        const actionButton = card.querySelector(".task-action");
+
+        card.dataset.status = status;
+
+        if (status === "progress") {
+            statusElement.textContent = "В работе";
+            statusElement.className = "task-status status-progress";
+
+            actionButton.textContent = "Отправить на проверку";
+            actionButton.className = "task-action complete-task";
+            actionButton.disabled = false;
+        }
+
+        if (status === "review") {
+            statusElement.textContent = "На проверке";
+            statusElement.className = "task-status status-review";
+
+            actionButton.textContent = "Ожидает проверки";
+            actionButton.className = "task-action";
+            actionButton.disabled = true;
+        }
+
+        updateCounts();
+    }
+
+    taskCards.forEach(card => {
+        card.addEventListener("click", event => {
+            if (event.target.classList.contains("start-task")) {
+                updateTaskStatus(card, "progress");
+            } 
+            else if (event.target.classList.contains("complete-task")) {
+                updateTaskStatus(card, "review");
+            }
+        });
+    });
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            filterButtons.forEach(item => item.classList.remove("active"));
+            button.classList.add("active");
+
+            const filter = button.dataset.filter;
+            let visibleCount = 0;
+
+            taskCards.forEach(card => {
+                const visible =
+                    filter === "all" || card.dataset.status === filter;
+
+                card.style.display = visible ? "flex" : "none";
+
+                if (visible) visibleCount++;
+            });
+
+            document.getElementById("empty-tasks").style.display =
+                visibleCount === 0 ? "block" : "none";
+        });
+    });
+
+    updateCounts();
+</script>
+<script> src="js/tasks.js"</script>
+</body>
+</html>

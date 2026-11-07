@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+
+    <!-- Боковое меню -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">C</div>
+            <div class="logo-text">
+                <strong>COMPANY</strong>
+                <span>Корпоративный портал</span>
+            </div>
+        </div>
+
+        <div class="menu-label">МЕНЮ</div>
+
+        <nav class="navigation">
+            <a href="#home" class="nav-link active">
+                <span class="nav-icon">⌂</span>
+                Главная
+            </a>
+
+            <a href="#profile" class="nav-link">
+                <span class="nav-icon">♙</span>
+                Личный кабинет
+            </a>
+
+            <a href="tasks.html" class="nav-link">
+                <span class="nav-icon">✓</span>
+                Мои задания
+                <span class="nav-count">3</span>
+            </a>
+
+            <a href="rewards.html" class="nav-link">
+                <span class="nav-icon">♧</span>
+                Магазин призов
+            </a>
+
+            <a href="#rating" class="nav-link">
+                <span class="nav-icon">♜</span>
+                Рейтинг сотрудников
+            </a>
+
+            <a href="#reviews" class="nav-link">
+                <span class="nav-icon">✉</span>
+                Отзывы
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-card">
+                <div class="help-icon">?</div>
+                <strong>Нужна помощь?</strong>
+                <p>Если возникли вопросы, обратись к администратору.</p>
+            </div>
+
+            <div class="user-mini">
+                <div class="avatar">ИП</div>
+                <div class="user-mini-info">
+                    <strong>Иван Петров</strong>
+                    <span>Сотрудник</span>
+                </div>
+                <span class="user-more">•••</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- Основная часть -->
+    <main class="main-content" id="home">
+
+        <header class="topbar">
+            <div>
+                <div class="breadcrumb">Портал / Главная</div>
+                <h1>Главная</h1>
+            </div>
+
+            <div class="topbar-right">
+                <button class="notification-button" aria-label="Уведомления">
+                    ♧
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="topbar-user">
+                    <div class="avatar">ИП</div>
+                    <div>
+                        <strong>Иван Петров</strong>
+                        <span>Сотрудник</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Приветствие -->
+        <section class="welcome-section">
+            <div>
+                <span class="welcome-label">ВАШ КОРПОРАТИВНЫЙ ПРОСТРАНСТВО</span>
+                <h2>Добро пожаловать, Иван! 👋</h2>
+                <p>Выполняйте задания, зарабатывайте баллы и обменивайте их на приятные бонусы.</p>
+            </div>
+
+            <div class="welcome-decoration">★</div>
+        </section>
+
+        <!-- Карточки статистики -->
+        <section class="stats-grid">
+
+            <div class="stat-card balance-card">
+                <div class="stat-top">
+                    <span>Мой баланс</span>
+                    <div class="stat-icon blue-icon">✦</div>
+                </div>
+                <div class="stat-value">2 450 <span>баллов</span></div>
+                <div class="stat-description">Доступно для обмена на призы</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Активные задания</span>
+                    <div class="stat-icon purple-icon">✓</div>
+                </div>
+                <div class="stat-value">3</div>
+                <div class="stat-description">Задания, которые нужно выполнить</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Выполнено заданий</span><div class="stat-icon green-icon">★</div>
+                </div>
+                <div class="stat-value">18</div>
+                <div class="stat-description">За всё время работы</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Место в рейтинге</span>
+                    <div class="stat-icon orange-icon">♛</div>
+                </div>
+                <div class="stat-value">#7</div>
+                <div class="stat-description">Среди сотрудников компании</div>
+            </div>
+
+        </section>
+
+        <!-- Основные блоки -->
+        <section class="content-grid">
+
+            <div class="panel tasks-panel" id="tasks">
+                <div class="panel-header">
+                    <div>
+                        <h3>Мои задания</h3>
+                        <p>Задания, назначенные вам</p>
+                    </div>
+                    <a href="#tasks" class="text-link">Все задания →</a>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-marker blue-marker"></div>
+                    <div class="task-info">
+                        <strong>Подготовить еженедельный отчёт</strong>
+                        <span>Отдел маркетинга · До 10 ноября</span>
+                    </div>
+                    <div class="task-points">+300 баллов</div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-marker purple-marker"></div>
+                    <div class="task-info">
+                        <strong>Пройти внутреннее обучение</strong>
+                        <span>Обучение · До 12 ноября</span>
+                    </div>
+                    <div class="task-points">+500 баллов</div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-marker green-marker"></div>
+                    <div class="task-info">
+                        <strong>Помочь новому сотруднику</strong>
+                        <span>Командная работа · До 15 ноября</span>
+                    </div>
+                    <div class="task-points">+200 баллов</div>
+                </div>
+            </div>
+
+            <div class="panel activity-panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Последние операции</h3>
+                        <p>История изменения баланса</p>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-icon positive">+</div>
+                    <div class="activity-info">
+                        <strong>Выполнение задания</strong>
+                        <span>5 ноября 2026</span>
+                    </div>
+                    <div class="activity-value positive-text">+300</div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-icon negative">−</div>
+                    <div class="activity-info">
+                        <strong>Покупка бонуса</strong>
+                        <span>3 ноября 2026</span>
+                    </div>
+                    <div class="activity-value negative-text">−500</div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-icon positive">+</div>
+                    <div class="activity-info">
+                        <strong>Выполнение задания</strong>
+                        <span>1 ноября 2026</span>
+                    </div>
+                    <div class="activity-value positive-text">+250</div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Магазин призов -->
+        <section class="panel rewards-panel" id="rewards">
+
+            <div class="panel-header">
+                <div>
+                    <h3>Популярные бонусы</h3>
+                    <p>Обменивайте накопленные баллы на подарки</p>
+                </div>
+                <a href="#rewards" class="text-link">Весь магазин →</a></div>
+            
+            <div class="rewards-grid">
+
+                <div class="reward-card">
+                    <div class="reward-image reward-blue">🎁</div>
+                    <div class="reward-info">
+                        <strong>Подарочный сертификат</strong>
+                        <span>Универсальный сертификат</span>
+                        <div class="reward-bottom">
+                            <b>1 500 баллов</b>
+                            <button class="small-button">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reward-card">
+                    <div class="reward-image reward-purple">☕</div>
+                    <div class="reward-info">
+                        <strong>Сертификат на кофе</strong>
+                        <span>Вкусный перерыв</span>
+                        <div class="reward-bottom">
+                            <b>800 баллов</b>
+                            <button class="small-button">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reward-card">
+                    <div class="reward-image reward-green">🏆</div>
+                    <div class="reward-info">
+                        <strong>Дополнительный выходной</strong>
+                        <span>День отдыха</span>
+                        <div class="reward-bottom">
+                            <b>5 000 баллов</b>
+                            <button class="small-button">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            © 2026 Корпоративный портал. Все права защищены.
+        </footer>
+
+    </main>
+
+</div>
+</body>
+</html>
